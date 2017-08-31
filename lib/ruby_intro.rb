@@ -38,7 +38,7 @@ def starts_with_consonant? s #no vowels, numbers, special chars
 end
 
 def binary_multiple_of_4? s #4 is 0b100
-  s =~ /(^[10]*00$)|^0$/ ? true : false
+  s =~ /^[10]*00$|^0$/ ? true : false
 end
 
 # Part 3
@@ -52,7 +52,7 @@ class BookInStock
   end
 
   def price_as_string
-    format("$%.2f", @price) #display $ with 2 decimal places
+    format "$%.2f", @price #display $ with 2 decimal places (sprintf)
   end
   
 end
