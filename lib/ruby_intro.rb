@@ -5,17 +5,14 @@
 
 # Part 1
 def sum arr
-  arr.inject(0) { |total, a| total += a }
+  arr.inject(0) { |total, a| total += a } # from class
 end
 
 def max_2_sum arr
-  if arr.length > 2 #sum of top 2
-    array = arr.sort{|x, y| y <=> x}
-    return array[0] + array[1]
-  elsif arr.length == 1 #only one
-    return arr[0]
-  else #empty array
-    0
+  return case arr.length
+    when 0  ; 0 #no elements in arr, return 0
+    when 1  ; arr[0] #one element, return element value
+    else array = arr.sort{|x, y| y <=> x} ; array[0] + array[1] #return top 2
   end
 end
 
@@ -40,7 +37,7 @@ def starts_with_consonant? s #no vowels, numbers, special chars
   s =~ /^[^aeiou\d\W](.*)/i ? true : false
 end
 
-def binary_multiple_of_4? s #4 is 0d100
+def binary_multiple_of_4? s #4 is 0b100
   s =~ /(^[10]*00$)|^0$/ ? true : false
 end
 
