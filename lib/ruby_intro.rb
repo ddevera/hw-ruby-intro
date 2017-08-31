@@ -52,7 +52,7 @@ class BookInStock
   end
 
   def price_as_string
-    format "$%.2f", @price #display $ with 2 decimal places (sprintf)
+    '$%.2f' % @price #display $ with 2 decimal places (String#%)
   end
   
 end
