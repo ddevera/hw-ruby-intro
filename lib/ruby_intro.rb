@@ -3,15 +3,32 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  total = 0
+  arr.each { |num| total += num  }
+  return total
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if (arr.length > 2)
+    array = arr.sort{|x, y| y <=> x}
+    return array[0] + array[1]
+  elsif (arr.length == 1)
+    return arr[0]
+  else
+    return 0
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  hash = Hash.new(0)
+  arr.each do |val|
+   if hash.key? val
+    return true
+   else
+    hash[n-val] = val
+   end
+  end
+  return false
 end
 
 # Part 2
