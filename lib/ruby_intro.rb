@@ -1,34 +1,36 @@
-# When done, submit this entire file to the autograder.
-
+=begin
+  Derek Devera
+  CSCI 602 - hw-ruby-intro
+=end
 # Part 1
 
 def sum arr
   total = 0
   arr.each { |num| total += num  }
-  return total
+  total
 end
 
 def max_2_sum arr
-  if (arr.length > 2)
+  if arr.length > 2
     array = arr.sort{|x, y| y <=> x}
     return array[0] + array[1]
-  elsif (arr.length == 1)
+  elsif arr.length == 1
     return arr[0]
   else
-    return 0
+    0
   end
 end
 
 def sum_to_n? arr, n
   hash = Hash.new(0)
   arr.each do |val|
-   if hash.key? val
-    return true
-   else
-    hash[n-val] = val
-   end
+    if hash.key? val
+      return true
+    else
+      hash[n - val] = val
+    end
   end
-  return false
+  false
 end
 
 # Part 2
