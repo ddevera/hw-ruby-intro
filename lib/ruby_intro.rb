@@ -17,14 +17,11 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  hash = Hash.new(0)
-  arr.each do |val|
-    if hash.key? val #value = n, no need to test
+  arr.permutation(2).to_a.each { |first, second|
+    if first+second == n #value = n, no need to test
       return true
-    else #test new value (n-value) on loop back
-      hash[n - val] = val
     end
-  end #couldn't find a match
+  }
   false
 end
 
@@ -33,12 +30,12 @@ def hello name
   "Hello, #{name}"
 end
 
-def starts_with_consonant? s #no vowels, numbers, special chars
-  s =~ /^[^aeiou\d\W](.*)/i ? true : false
+def starts_with_consonant? s #no vowels, numbers, special chars for 1st char
+  s =~ /^[^aeiou\d\W]/i
 end
 
 def binary_multiple_of_4? s #4 is 0b100
-  s =~ /^[10]*00$|^0$/ ? true : false
+  s =~ /^[10]*00$|^0$/
 end
 
 # Part 3
